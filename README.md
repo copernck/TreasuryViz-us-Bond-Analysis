@@ -128,12 +128,8 @@ We welcome suggestions for new features and improvements. Please contact us with
 ## 🔄 Updates
 
 ### Automatic Updates:
-- Firefox will automatically update your extension when new versions are published
-- Users will receive notifications about major updates
+- Firefox will automatically update your extension when i publish new version
 
-### Manual Updates:
-1. Download the latest version
-2. Install over existing version
-3. Settings and data will be preserved
+
 
 ---
