@@ -33,7 +33,8 @@ treasury-viz-extension/
 1. **Open Firefox**
    - Launch Firefox browser
 
-go to extension tool and type TreasuryViz ( coming soon )
+go to extension tool and type TreasuryViz 
+or you can just click here https://addons.mozilla.org/addon/treasuryviz-us-bond-analysis/
 
 ## 🎯 How to Use TreasuryViz
 
