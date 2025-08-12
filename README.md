@@ -130,6 +130,6 @@ We welcome suggestions for new features and improvements. Please contact us with
 ### Automatic Updates:
 - Firefox will automatically update your extension when i publish new version
 
-
+Development Status: Please note, this version currently uses mock/sample data for demonstration purposes. All front-end features, including the dashboard, charting, and comparison tools, are fully implemented. The next development phase is to integrate live data from the Treasury and FRED APIs.
 
 ---
