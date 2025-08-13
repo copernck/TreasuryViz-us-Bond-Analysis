@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TreasuryViz - US Treasury Bond Analysis</title>
+    <link rel="stylesheet" href="css/popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon">TV</div>
+                <div>
+                    <h1>TreasuryViz</h1>
+                    <p>US Treasury Analysis</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="settingsBtn" class="icon-btn" title="Settings">
+                    ⚙️
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="yield-curve">Yield Curve</button>
+            <button class="tab-btn" data-tab="comparison">Compare</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-panel active">
+                <div class="bond-selector">
+                    <label for="bondSelect">Select Treasury Bond:</label>
+                    <select id="bondSelect">
+                        <option value="3M">3 Month Treasury</option>
+                        <option value="6M">6 Month Treasury</option>
+                        <option value="1Y">1 Year Treasury</option>
+                        <option value="2Y">2 Year Treasury</option>
+                        <option value="5Y">5 Year Treasury</option>
+                        <option value="10Y" selected>10 Year Treasury</option>
+                        <option value="30Y">30 Year Treasury</option>
+                    </select>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <h3 id="bondName">10 Year Treasury Note</h3>
+                        <span id="bondChange" class="change positive">+0.12%</span>
+                    </div>
+                    <div class="bond-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Yield</div>
+                            <div class="metric-value" id="bondYield">4.15%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Price</div>
+                            <div class="metric-value" id="bondPrice">$92.85</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Maturity</div>
+                            <div class="metric-value" id="bondMaturity">10Y</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mini-chart">
+                    <h4>24h Performance</h4>
+                    <div class="chart-container">
+                        <canvas id="performanceChart" width="280" height="120"></canvas>
+                    </div>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat">
+                        <div class="stat-label">Inflation</div>
+                        <div class="stat-value">3.2%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Fed Rate</div>
+                        <div class="stat-value">5.25%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Spread</div>
+                        <div class="stat-value">-0.50%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yield Curve Tab -->
+            <div id="yield-curve" class="tab-panel">
+                <div class="curve-controls">
+                    <select id="timeRange">
+                        <option value="1D">1 Day</option>
+                        <option value="1W">1 Week</option>
+                        <option value="1M" selected>1 Month</option>
+                        <option value="3M">3 Months</option>
+                        <option value="1Y">1 Year</option>
+                    </select>
+                </div>
+
+                <div class="yield-curve-container">
+                    <canvas id="yieldCurveChart" width="300" height="200"></canvas>
+                </div>
+
+                <div class="curve-info">
+                    <h4>Curve Analysis</h4>
+                    <p>Normal upward slope indicating economic growth expectations</p>
+                    <div class="curve-metrics">
+                        <div class="curve-metric">
+                            <span>10Y-2Y Spread:</span>
+                            <span class="negative">-0.50%</span>
+                        </div>
+                        <div class="curve-metric">
+                            <span>Curve Steepness:</span>
+                            <span class="positive">Moderate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Tab -->
+            <div id="comparison" class="tab-panel">
+                <div class="comparison-controls">
+                    <div class="bond-select">
+                        <label>Bond 1:</label>
+                        <select id="bond1Select">
+                            <option value="2Y">2 Year Treasury</option>
+                            <option value="5Y">5 Year Treasury</option>
+                            <option value="10Y" selected>10 Year Treasury</option>
+                            <option value="30Y">30 Year Treasury</option>
+                        </select>
+                    </div>
+                    <div class="bond-select">
+                        <label>Bond 2:</label>
+                        <select id="bond2Select">
+                            <option value="2Y" selected>2 Year Treasury</option>
+                            <option value="5Y">5 Year Treasury</option>
+                            <option value="10Y">10 Year Treasury</option>
+                            <option value="30Y">30 Year Treasury</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Bond 1</th>
+                                <th>Bond 2</th>
+                                <th>Diff</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Yield</td>
+                                <td id="bond1Yield">4.15%</td>
+                                <td id="bond2Yield">4.65%</td>
+                                <td id="yieldDiff" class="negative">-0.50%</td>
+                            </tr>
+                            <tr>
+                                <td>Duration</td>
+                                <td id="bond1Duration">8.2y</td>
+                                <td id="bond2Duration">1.9y</td>
+                                <td id="durationDiff" class="positive">+6.3y</td>
+                            </tr>
+                            <tr>
+                                <td>Risk Level</td>
+                                <td id="bond1Risk">High</td>
+                                <td id="bond2Risk">Low</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="status">
+                <span class="status-dot"></span>
+                <span>Live Data</span>
+            </div>
+            <div class="footer-actions">
+                <button id="refreshBtn" class="icon-btn" title="Refresh">🔄</button>
+                <button id="expandBtn" class="icon-btn" title="Open Full View">🔍</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TreasuryViz Settings</title>
+    <link rel="stylesheet" href="css/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="settings-container">
+        <div class="settings-header">
+            <div class="logo">
+                <div class="logo-icon">TV</div>
+                <div>
+                    <h1>TreasuryViz Settings</h1>
+                    <p>Configure your Treasury analysis preferences</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-content">
+            <!-- General Settings -->
+            <div class="settings-section">
+                <h2>General Settings</h2>
+                <div class="setting-item">
+                    <label for="refreshInterval">Data Refresh Interval</label>
+                    <select id="refreshInterval">
+                        <option value="1">1 minute</option>
+                        <option value="5" selected>5 minutes</option>
+                        <option value="10">10 minutes</option>
+                        <option value="30">30 minutes</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="defaultBond">Default Bond</label>
+                    <select id="defaultBond">
+                        <option value="3M">3 Month Treasury</option>
+                        <option value="6M">6 Month Treasury</option>
+                        <option value="1Y">1 Year Treasury</option>
+                        <option value="2Y">2 Year Treasury</option>
+                        <option value="5Y">5 Year Treasury</option>
+                        <option value="10Y" selected>10 Year Treasury</option>
+                        <option value="30Y">30 Year Treasury</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="theme">Theme</label>
+                    <select id="theme">
+                        <option value="light" selected>Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Data Sources -->
+            <div class="settings-section">
+                <h2>Data Sources</h2>
+                <div class="setting-item">
+                    <label for="useTreasuryAPI">Use Treasury.gov API</label>
+                    <input type="checkbox" id="useTreasuryAPI" checked>
+                </div>
+                <div class="setting-item">
+                    <label for="useFedData">Use Federal Reserve Data</label>
+                    <input type="checkbox" id="useFedData" checked>
+                </div>
+                <div class="setting-item">
+                    <label for="useFredData">Use FRED Economic Data</label>
+                    <input type="checkbox" id="useFredData" checked>
+                </div>
+            </div>
+
+            <!-- Display Options -->
+            <div class="settings-section">
+                <h2>Display Options</h2>
+                <div class="setting-item">
+                    <label for="showAnimations">Show Animations</label>
+                    <input type="checkbox" id="showAnimations" checked>
+                </div>
+                <div class="setting-item">
+                    <label for="showNotifications">Show Notifications</label>
+                    <input type="checkbox" id="showNotifications" checked>
+                </div>
+                <div class="setting-item">
+                    <label for="highlightTerms">Highlight Financial Terms</label>
+                    <input type="checkbox" id="highlightTerms" checked>
+                </div>
+                <div class="setting-item">
+                    <label for="showWidget">Show Page Widget</label>
+                    <input type="checkbox" id="showWidget">
+                </div>
+            </div>
+
+            <!-- Advanced Settings -->
+            <div class="settings-section">
+                <h2>Advanced Settings</h2>
+                <div class="setting-item">
+                    <label for="apiTimeout">API Timeout (seconds)</label>
+                    <input type="number" id="apiTimeout" min="5" max="60" value="30">
+                </div>
+                <div class="setting-item">
+                    <label for="cacheDuration">Cache Duration (minutes)</label>
+                    <input type="number" id="cacheDuration" min="1" max="60" value="5">
+                </div>
+                <div class="setting-item">
+                    <label for="debugMode">Debug Mode</label>
+                    <input type="checkbox" id="debugMode">
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="settings-section">
+                <h2>Actions</h2>
+                <div class="action-buttons">
+                    <button id="saveSettings" class="btn-primary">Save Settings</button>
+                    <button id="resetSettings" class="btn-secondary">Reset to Defaults</button>
+                    <button id="clearCache" class="btn-secondary">Clear Cache</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-footer">
+            <div class="support-info">
+                <p>Need help? Contact us at <a href="mailto:tamiusobserver@gmail.com">tamiusobserver@gmail.com</a></p>
+                <p>Version 1.0.0</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+</body>
+</html>

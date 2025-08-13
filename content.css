@@ -1,0 +1,186 @@
+/* TreasuryViz Content Script Styles */
+
+.treasuryviz-highlight {
+    background-color: #fef3c7;
+    padding: 2px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.treasuryviz-highlight:hover {
+    background-color: #fde68a;
+    transform: scale(1.05);
+}
+
+.treasuryviz-highlight.treasury-term {
+    background-color: #dbeafe;
+}
+
+.treasuryviz-highlight.treasury-term:hover {
+    background-color: #bfdbfe;
+}
+
+.treasuryviz-highlight.bond-term {
+    background-color: #dcfce7;
+}
+
+.treasuryviz-highlight.bond-term:hover {
+    background-color: #bbf7d0;
+}
+
+.treasuryviz-highlight.yield-term {
+    background-color: #fef3c7;
+}
+
+.treasuryviz-highlight.yield-term:hover {
+    background-color: #fde68a;
+}
+
+.treasuryviz-highlight.inflation-term {
+    background-color: #fce7f3;
+}
+
+.treasuryviz-highlight.inflation-term:hover {
+    background-color: #fbcfe8;
+}
+
+.treasuryviz-highlight.fed-term {
+    background-color: #e0e7ff;
+}
+
+.treasuryviz-highlight.fed-term:hover {
+    background-color: #c7d2fe;
+}
+
+.treasuryviz-tooltip {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    max-width: 300px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.treasuryviz-tooltip h3 {
+    margin: 0 0 8px 0;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.treasuryviz-tooltip p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.treasuryviz-tooltip button {
+    margin-top: 12px;
+    padding: 6px 12px;
+    background: #1f2937;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+.treasuryviz-tooltip button:hover {
+    background: #374151;
+}
+
+#treasuryviz-widget {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#treasuryviz-widget .widget-header {
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#treasuryviz-widget .widget-title {
+    margin: 0;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#treasuryviz-widget .widget-content {
+    padding: 16px;
+}
+
+#treasuryviz-widget .widget-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+#treasuryviz-widget .widget-close:hover {
+    color: #374151;
+}
+
+#treasuryviz-widget .data-display {
+    margin-top: 12px;
+    padding: 8px;
+    background: #f9fafb;
+    border-radius: 4px;
+}
+
+#treasuryviz-widget .data-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+#treasuryviz-widget .data-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #treasuryviz-widget {
+        width: 250px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Animation for highlights */
+@keyframes treasuryviz-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+    }
+}
+
+.treasuryviz-highlight.new {
+    animation: treasuryviz-pulse 1s ease-in-out;
+}
